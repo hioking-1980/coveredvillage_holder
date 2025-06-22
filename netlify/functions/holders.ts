@@ -1,4 +1,5 @@
-console.log("ALCHEMY_API_KEY:", process.env.ALCHEMY_API_KEY);import type { Handler } from '@netlify/functions';
+console.log("ALCHEMY_API_KEY:", process.env.ALCHEMY_API_KEY);
+import type { Handler } from '@netlify/functions';
 
 const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
 const COLLECTION_ADDRESS = "0x0e6a70cb485Ed3735Fa2136E0D4aDC4BF5456F93";
@@ -15,6 +16,7 @@ export const handler: Handler = async (event, context) => {
       };
     }
     const data = await res.json();
+    console.log("Alchemy API Response:", JSON.stringify(data)); // ← ここでAPIレスポンスを出力
     return {
       statusCode: 200,
       body: JSON.stringify(data.owners || [])
