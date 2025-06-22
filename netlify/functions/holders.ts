@@ -16,10 +16,10 @@ export const handler: Handler = async (event, context) => {
       };
     }
     const data = await res.json();
-    console.log("Alchemy API Response:", JSON.stringify(data)); // ← ここでAPIレスポンスを出力
+    console.log("Alchemy API Response:", JSON.stringify(data)); // ログ出力
     return {
       statusCode: 200,
-      body: JSON.stringify(data.owners || [])
+      body: JSON.stringify(data.ownerAddresses || [])
     };
   } catch (e) {
     return {
