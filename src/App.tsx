@@ -50,32 +50,46 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <header className="bg-white shadow flex flex-col items-center py-4 px-2 border-b">
-        <div className="flex items-center gap-3 mb-2 w-full justify-between">
-          <div className="flex items-center gap-3">
-            <img src="/icons/murayakunin.png" alt="カバードビレッジアイコン" className="w-14 h-14 rounded border-2 bg-white object-contain" />
-            <h1 className="text-3xl font-bold text-gray-800 tracking-wide bg-yellow-200 px-4 py-1 rounded">カバードビレッジ階級表（ほぼリアルタイム）</h1>
-          </div>
-          <div className="flex gap-2 items-center">
-            <img src="/icons/ジェネラティブ_test12_Original.PNG" alt="キャラ1" className="w-10 h-10 rounded-full border object-cover" />
-            <img src="/icons/ジェネラティブ_test2_Original.PNG" alt="キャラ2" className="w-10 h-10 rounded-full border object-cover" />
-            <img src="/icons/ジェネラティブ_test4_Original.PNG" alt="キャラ3" className="w-10 h-10 rounded-full border object-cover" />
-            <img src="/icons/ジェネラティブ_test7_Original.PNG" alt="キャラ4" className="w-10 h-10 rounded-full border object-cover" />
-          </div>
-        </div>
-        <div className="flex gap-2 items-center mt-2">
-          <label htmlFor="address" className="text-sm font-medium text-gray-700">コレクションアドレス:</label>
-          <input
-            id="address"
-            type="text"
-            value={address}
-            onChange={handleInput}
-            placeholder="0x..."
-            className="border rounded px-2 py-1 text-sm w-64"
-          />
-          <span className="text-xs text-gray-400">（現在はモックデータ表示）</span>
-        </div>
-      </header>
+      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow px-6 py-3 flex flex-col">
+  <div className="flex items-center justify-between">
+    {/* OpenSeaロゴボタン */}
+    <a
+      href="https://opensea.io/ja/collection/coveredvillage"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center mr-4"
+    >
+      <img
+        src="/icons/opensea_logo.png"
+        alt="OpenSea"
+        className="h-10 w-auto"
+      />
+    </a>
+    {/* タイトル */}
+    <span className="text-2xl font-bold bg-yellow-200 px-4 py-1 rounded">
+      カバードビレッジ階級表（ほぼリアルタイム）
+    </span>
+    {/* 右側のアイコン */}
+    <div className="flex gap-2 items-center">
+      <img src="/icons/カバードビレッジ階級.PNG" alt="カバードビレッジ階級" className="w-10 h-10 rounded-full border object-cover" />
+      <img src="/icons/カバードビレッジ階級2.PNG" alt="カバードビレッジ階級2" className="w-10 h-10 rounded-full border object-cover" />
+      <img src="/icons/カバードビレッジ階級3.PNG" alt="カバードビレッジ階級3" className="w-10 h-10 rounded-full border object-cover" />
+      <img src="/icons/カバードビレッジ階級4.PNG" alt="カバードビレッジ階級4" className="w-10 h-10 rounded-full border object-cover" />
+    </div>
+  </div>
+  <div className="flex gap-2 items-center mt-2">
+    <label htmlFor="address" className="text-sm font-medium text-gray-700">コレクションアドレス:</label>
+    <input
+      id="address"
+      type="text"
+      value={address}
+      onChange={handleInput}
+      placeholder="0x..."
+      className="border rounded px-2 py-1 text-sm w-64"
+    />
+    <span className="text-xs text-gray-400">（現在はモックデータ表示）</span>
+  </div>
+</header>
       <main className="flex-1 flex overflow-x-auto bg-white">
         {/* Sidebar */}
         <HierarchySidebar hierarchyOrder={hierarchyOrder} hierarchyDesc={hierarchyDesc} categorized={categorized} />
